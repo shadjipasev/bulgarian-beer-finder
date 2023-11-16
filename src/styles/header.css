@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Amatic+SC:wght@700&display=swap");
+header {
+  padding: 0 4rem;
+  background-color: #394932;
+  max-height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 10px black;
+}
+
+.head__left {
+  display: flex;
+  align-items: center;
+}
+
+.head__left__logo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.head__left__moto {
+  font-size: 28px;
+  font-family: "Amatic SC", sans-serif;
+}
+
+.head__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.head__right__nav {
+  font-family: "Alegreya Sans", sans-serif;
+  text-decoration: none;
+}
