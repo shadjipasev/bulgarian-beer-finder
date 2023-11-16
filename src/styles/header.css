@@ -1,12 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Amatic+SC:wght@700&display=swap");
 header {
-  padding: 0 4rem;
+  padding: 0rem+ 4rem;
   background-color: #394932;
   max-height: 10rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: solid 10px black;
 }
 
 .head__left {
@@ -16,7 +15,7 @@ header {
 
 .head__left__logo {
   width: 180px;
-  height: 180px;
+  height: 170px;
   object-fit: cover;
 }
 
@@ -29,7 +28,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
 }
 
 .head__right__nav {

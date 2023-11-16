@@ -12,9 +12,6 @@ export default function Header() {
       </div>
 
       <div className="head__right">
-        {/* <Routes>
-            
-        </Routes> */}
         <a href="" className="head__right__nav">
           Каталози
         </a>
@@ -25,8 +22,9 @@ export default function Header() {
           Оферти
         </a>
         {/* Here the user will let the luck choose what beer he will drink */}
-        <a href="" className="head__right__nav"></a>
-        {/* Тото Бира */}
+        <a href="" className="head__right__nav">
+          Тото Бира
+        </a>
       </div>
     </header>
   );
