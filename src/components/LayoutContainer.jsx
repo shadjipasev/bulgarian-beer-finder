@@ -1,10 +1,10 @@
 import Main from "./Main";
 import Sidebar from "./Sidebar";
-import "../styles/layoutcontainer";
+import "../styles/layoutcontainer.css";
 
 export default function LayoutContainer() {
   return (
-    <div className="LayoutContainer">
+    <div className="container">
       <Sidebar />
       <Main />
     </div>
