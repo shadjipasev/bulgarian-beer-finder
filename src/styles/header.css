@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Amatic+SC:wght@700&display=swap");
-header {
+.head {
   padding: 0rem+ 4rem;
-  background-color: #394932;
+  background-color: #45a158;
   max-height: 10rem;
   display: flex;
   align-items: center;
@@ -14,17 +14,24 @@ header {
 }
 
 .head__left__logo {
-  width: 180px;
-  height: 170px;
+  margin-left: 2rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  width: 125px;
+  height: 125px;
   object-fit: cover;
+  border: 1px;
+  border-radius: 200%;
 }
 
 .head__left__moto {
   font-size: 28px;
   font-family: "Amatic SC", sans-serif;
+  margin-left: 3rem;
 }
 
 .head__right {
+  margin-right: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
