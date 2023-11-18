@@ -1,4 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Amatic+SC:wght@700&display=swap");
+
 .sidebar {
-  background-color: blue;
+  border: solid 3px blue;
   flex-grow: 1;
+  max-width: 30vh;
+  background-color: #d3eed4;
+  /* flex-direction: column;
+  align-items: center; */
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.sidebar__nav__link {
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: larger;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  height: 4rem;
+}
+
+.sidebar__nav__link:hover {
+  background-color: aqua;
 }
