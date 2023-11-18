@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Amatic+SC:wght@700&display=swap");
 .head {
+  flex-grow: 1;
   padding: 0rem+ 4rem;
   background-color: #45a158;
   max-height: 10rem;
