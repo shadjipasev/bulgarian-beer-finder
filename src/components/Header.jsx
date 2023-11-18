@@ -13,7 +13,7 @@ export default function Header() {
       <input
         type="text"
         className="head__search"
-        placeholder="Search.."
+        placeholder="Потърси любимата си бира.."
       ></input>
       <div className="head__right">
         <a href="" className="head__right__nav">

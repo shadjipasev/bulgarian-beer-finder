@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 1rem;
 }
 
 .head__left {
@@ -30,15 +31,29 @@
   margin-left: 3rem;
 }
 
+.head__search {
+  max-width: 300px;
+  height: 35px;
+  flex-grow: 1;
+  border-radius: 10px;
+  border-style: none;
+  margin-right: 28rem;
+}
+
 .head__right {
   margin-right: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
 }
 
 .head__right__nav {
   font-family: "Alegreya Sans", sans-serif;
   text-decoration: none;
+  display: inline-block;
+}
+
+.head__right__nav:hover {
+  background-color: antiquewhite;
 }
