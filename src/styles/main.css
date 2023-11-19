@@ -1,4 +1,32 @@
 .main {
-  background-color: red;
-  flex-grow: 10;
+  /* background-color: red; */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 8;
+}
+
+.main__section {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.main__card {
+  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-width: 250px;
+  max-width: 250px;
+  height: 350px;
+  border: solid 1px black;
+  border-radius: 5px;
+}
+
+.main__card__img {
+  width: 160px;
+  height: 280px;
 }
