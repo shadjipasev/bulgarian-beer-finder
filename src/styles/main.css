@@ -1,14 +1,27 @@
 .main {
   /* background-color: red; */
-  padding: 2rem;
+  padding: 5rem;
   display: flex;
   flex-direction: column;
   flex-grow: 8;
 }
 
+.main__heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.main__title {
+  font-size: 30px;
+}
+
 .main__section {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   flex-wrap: wrap;
 }
 

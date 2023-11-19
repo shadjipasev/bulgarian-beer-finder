@@ -4,7 +4,9 @@ import beer from "../assets/Бургаско.png";
 export default function Main() {
   return (
     <div className="main">
-      <h1 className="main__title">You are in main</h1>
+      <div className="main__heading">
+        <h1 className="main__title">You are in main</h1>
+      </div>
 
       <section className="main__section">
         <div className="main__card">
