@@ -5,6 +5,7 @@ const beerSchema = new Schema({
   quantity: { type: String, required: true },
   price: { type: Number, required: true },
   oldPrice: { type: Number, required: true },
+  type: { type: String, required: true },
   picUrl: { type: String, required: true },
   validFrom: { type: Date, required: true },
   validUntil: { type: Date, require: true },
