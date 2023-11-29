@@ -1,14 +1,11 @@
-import { useState } from "react";
 import "./App.css";
-import Header from "./components/Header";
-import LayoutContainer from "./components/LayoutContainer";
-import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <div className="layout">
       <Header />
-      <LayoutContainer />
       <Footer />
     </div>
   );

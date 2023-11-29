@@ -1,6 +1,6 @@
 import { Link, Route, Routes } from "react-router-dom";
-import logo_v2 from "../assets/logo_v2.png";
-import "../styles/header.css";
+import logo_v2 from "../../assets/logo_v2.png";
+import "./header.css";
 export default function Header() {
   return (
     <header className="head">
