@@ -1,7 +1,7 @@
 const baseUrl =
   "https://sofia-supermarkets-api-proxy.stefan-bratanov.workers.dev/products/flat/alcohol?category=beer&useCdn=true";
 
-export const getAll = async () => {
+export const getOffers = async () => {
   try {
     const response = await fetch(baseUrl);
     const result = await response.json();

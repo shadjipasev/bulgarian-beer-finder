@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
+
 import "../styles/main.css";
 import beer from "../assets/Бургаско.png";
+import * as beerService from "../services/beerServices";
 
-export default function Main() {
+export default function AllBeers() {
+  const [beers, setBeers] = useState([]);
+
+  // console.log(beers);
+
+  useEffect(() => {
+    beerService.getAll().then((result) => setBeers(result));
+  }, []);
+
   return (
     <div className="main">
       <div className="main__heading">
