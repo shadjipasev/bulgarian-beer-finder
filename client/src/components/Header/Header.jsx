@@ -25,6 +25,9 @@ export default function Header() {
         <Link to="/offers" className="head__right__nav">
           Оферти
         </Link>
+        <Link to="/create" className="head__right__nav">
+          Create
+        </Link>
         {/* Here the user will let the luck choose what beer he will drink */}
         {/* <Link to="/" className="head__right__nav">
           Тото Бира
