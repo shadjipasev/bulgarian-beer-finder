@@ -40,11 +40,11 @@ authController.post("/login", async (req, res) => {
   }
 });
 
-authController.get("/profile/:id", async (req, res) => {
-  const userId = req.params.id;
-  const user = await getUserById(userId);
+// authController.get("/profile/:id", async (req, res) => {
+//   const userId = req.params.id;
+//   const user = await getUserById(userId);
 
-  res.json(user);
-});
+//   res.json(user);
+// });
 
 module.exports = authController;

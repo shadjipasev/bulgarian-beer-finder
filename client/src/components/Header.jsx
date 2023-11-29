@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import logo_v2 from "../assets/logo_v2.png";
 import "../styles/header.css";
 export default function Header() {
@@ -16,19 +16,19 @@ export default function Header() {
         placeholder="Потърси любимата си бира.."
       ></input>
       <div className="head__right">
-        <a href="" className="head__right__nav">
+        <Link to="/catalogs" className="head__right__nav">
           Каталози
-        </a>
-        <a href="" className="head__right__nav">
+        </Link>
+        <Link to="/stores" className="head__right__nav">
           Магазини
-        </a>
-        <a href="" className="head__right__nav">
+        </Link>
+        <Link to="/offers" className="head__right__nav">
           Оферти
-        </a>
+        </Link>
         {/* Here the user will let the luck choose what beer he will drink */}
-        <a href="" className="head__right__nav">
+        {/* <Link to="/" className="head__right__nav">
           Тото Бира
-        </a>
+        </Link> */}
       </div>
     </header>
   );

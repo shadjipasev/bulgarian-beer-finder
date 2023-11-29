@@ -5,7 +5,7 @@ import "../styles/layoutcontainer.css";
 export default function LayoutContainer() {
   return (
     <div className="container">
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Main />
     </div>
   );

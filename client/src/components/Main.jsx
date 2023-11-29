@@ -13,56 +13,7 @@ export default function Main() {
           <img className="main__card__img" src={beer} alt="" />
           <p className="main__card__product">Бургаско-Кен</p>
           <p className="main__card__price">1.60 лв.</p>
-        </div>
-        <div className="main__card">
-          <img className="main__card__img" src={beer} alt="" />
-          <p className="main__card__product">Бургаско-Кен</p>
-          <p className="main__card__price">1.60 лв.</p>
-        </div>
-        <div className="main__card">
-          <img className="main__card__img" src={beer} alt="" />
-          <p className="main__card__product">Бургаско-Кен</p>
-          <p className="main__card__price">1.60 лв.</p>
-        </div>
-        <div className="main__card">
-          <img className="main__card__img" src={beer} alt="" />
-          <p className="main__card__product">Бургаско-Кен</p>
-          <p className="main__card__price">1.60 лв.</p>
-        </div>
-        <div className="main__card">
-          <img className="main__card__img" src={beer} alt="" />
-          <p className="main__card__product">Бургаско-Кен</p>
-          <p className="main__card__price">1.60 лв.</p>
-        </div>
-        <div className="main__card">
-          <img className="main__card__img" src={beer} alt="" />
-          <p className="main__card__product">Бургаско-Кен</p>
-          <p className="main__card__price">1.60 лв.</p>
-        </div>
-        <div className="main__card">
-          <img className="main__card__img" src={beer} alt="" />
-          <p className="main__card__product">Бургаско-Кен</p>
-          <p className="main__card__price">1.60 лв.</p>
-        </div>
-        <div className="main__card">
-          <img className="main__card__img" src={beer} alt="" />
-          <p className="main__card__product">Бургаско-Кен</p>
-          <p className="main__card__price">1.60 лв.</p>
-        </div>
-        <div className="main__card">
-          <img className="main__card__img" src={beer} alt="" />
-          <p className="main__card__product">Бургаско-Кен</p>
-          <p className="main__card__price">1.60 лв.</p>
-        </div>
-        <div className="main__card">
-          <img className="main__card__img" src={beer} alt="" />
-          <p className="main__card__product">Бургаско-Кен</p>
-          <p className="main__card__price">1.60 лв.</p>
-        </div>
-        <div className="main__card">
-          <img className="main__card__img" src={beer} alt="" />
-          <p className="main__card__product">Бургаско-Кен</p>
-          <p className="main__card__price">1.60 лв.</p>
+          <p className="main__card__store">Супермаркет: Lidl</p>
         </div>
       </section>
     </div>
