@@ -2,7 +2,7 @@ import "./createBeer.css";
 import { useForm } from "../../hooks/useForm";
 
 export default function CreateBeer() {
-  const { values, onChange, onSubmit } = useForm({
+  const { values, onChange, onSubmit } = useForm(createSubmitHandler, {
     name: "",
     price: "",
     quantity: "",

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useForm = (initialValue) => {
+export const useForm = (submitHandler, initialValue) => {
   const [values, setValues] = useState(initialValue);
 
   const onChange = (e) => {
@@ -8,6 +8,12 @@ export const useForm = (initialValue) => {
       ...state,
       [e.target.name]: e.target.value,
     }));
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    submitHandler(values);
   };
 
   return {
