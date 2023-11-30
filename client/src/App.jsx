@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { Link, Route, Routes } from "react-router-dom";
-import AllBeers from "./components/All Beers/AllBeers";
+import AllBeers from "./components/AllBeers/AllBeers";
 import CreateBeer from "./components/Create Beer/CreateBeer";
 
 function App() {

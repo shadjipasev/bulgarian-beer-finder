@@ -9,7 +9,7 @@ export const create = async (data) => {
 };
 
 export const getAll = async () => {
-  const result = await request(baseUrl);
+  const result = await request("GET", baseUrl);
 
   return result;
 };
