@@ -14,23 +14,6 @@ beerController.get("/", async (req, res) => {
   res.json(allBeers);
 });
 
-beerController.get("/:type", async (req, res) => {
-  const beerType = req.params.type;
-  const beers = await getAllBeersType();
-  return beers;
-});
-
-beerController.get("/details/:id", async (req, res) => {
-  const beerId = req.params.id;
-  const beer = await getBeerById(beerId);
-  return beer;
-});
-
-beerController.get("/delete/:id", async (req, res) => {
-  const beerId = req.params.id;
-  await delById(beerId);
-});
-
 beerController.post("/create", async (req, res) => {
   const data = {
     name: req.body.name,
@@ -48,6 +31,23 @@ beerController.post("/create", async (req, res) => {
       message: error.message,
     });
   }
+});
+
+beerController.get("/:type", async (req, res) => {
+  const beerType = req.params.type;
+  const beers = await getAllBeersType();
+  return beers;
+});
+
+beerController.get("/details/:id", async (req, res) => {
+  const beerId = req.params.id;
+  const beer = await getBeerById(beerId);
+  return beer;
+});
+
+beerController.get("/delete/:id", async (req, res) => {
+  const beerId = req.params.id;
+  await delById(beerId);
 });
 
 beerController.put("/edit/:id", async (req, res) => {

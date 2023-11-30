@@ -1,8 +1,23 @@
 import "./createBeer.css";
-import { useForm } from "../../hooks/useForm";
+import { useState, useEffect } from "react";
+import * as beerServices from "../../services/beerServices";
 
 export default function CreateBeer() {
-  const { values, onChange, onSubmit } = useForm(createSubmitHandler, {
+  //   const { values, onChange, onSubmit } = useForm(createSubmitHandler, {
+  //     name: "",
+  //     price: "",
+  //     quantity: "",
+  //     type: "IPA",
+  //     imgUrl: "",
+  //   });
+
+  //   const createSubmitHandler = a(values) =>{
+
+  //   }
+
+  //   beerServices.create(values);
+
+  const [beerData, setBeerData] = useState({
     name: "",
     price: "",
     quantity: "",
@@ -10,10 +25,29 @@ export default function CreateBeer() {
     imgUrl: "",
   });
 
+  const onCreateBeerHandler = async (e) => {
+    e.preventDefault();
+    // const beerData = Object.fromEntries(new FormData(e.currentTarget));
+    console.log(beerData);
+    try {
+      await beerServices.create(beerData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const onChange = (e) => {
+    e.preventDefault();
+    setBeerData((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
   return (
     <div className="container">
       <h1>Create New Beer</h1>
-      <form className="beer-form" onSubmit={onSubmit}>
+      <form className="beer-form" onSubmit={onCreateBeerHandler}>
         <div className="form-group">
           <label htmlFor="name">Beer Name:</label>
           <input
@@ -21,7 +55,7 @@ export default function CreateBeer() {
             id="name"
             name="name"
             onChange={onChange}
-            value={values.name}
+            value={beerData.name}
           />
         </div>
 
@@ -33,7 +67,7 @@ export default function CreateBeer() {
             name="price"
             step="0.01"
             onChange={onChange}
-            value={values.price}
+            value={beerData.price}
           />
         </div>
 
@@ -44,13 +78,18 @@ export default function CreateBeer() {
             id="quantity"
             name="quantity"
             onChange={onChange}
-            value={values.quantity}
+            value={beerData.quantity}
           />
         </div>
 
         <div className="form-group">
           <label htmlFor="type">Type:</label>
-          <select id="type" name="type" onChange={onChange} value={values.type}>
+          <select
+            id="type"
+            name="type"
+            onChange={onChange}
+            value={beerData.type}
+          >
             <option onChange={onChange} value="IPA">
               IPA
             </option>
@@ -73,7 +112,7 @@ export default function CreateBeer() {
             id="imgUrl"
             name="imgUrl"
             onChange={onChange}
-            value={values.imgUrl}
+            value={beerData.imgUrl}
           />
         </div>
 

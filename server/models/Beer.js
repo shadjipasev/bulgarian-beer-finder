@@ -6,7 +6,6 @@ const beerSchema = new Schema({
   price: { type: Number, required: true },
   type: { type: String, required: true },
   imgUrl: { type: String, required: true },
-  country: { type: String, required: true },
 });
 
 const Beer = model("Beer", beerSchema);
