@@ -4,7 +4,7 @@ const User = require("../models/User");
 
 const secret = "q-asd231adfas12321kl";
 
-async function register(email, username, password) {
+async function register(username, email, password) {
   console.log(email, username, password);
   const existing = await User.findOne({ email });
   if (existing) {
@@ -20,16 +20,16 @@ async function register(email, username, password) {
   return createToken(user);
 }
 
-async function login(email, password) {
-  const user = await User.findOne({ email });
+async function login(username, password) {
+  const user = await User.findOne({ username });
 
   if (!user) {
-    throw new Error("Invalid  email or password!!!");
+    throw new Error("Invalid  username or password!!!");
   }
 
   const match = await bcrypt.compare(password, user.hashedPassword);
   if (!match) {
-    throw new Error("Invalid  email or password!!!");
+    throw new Error("Invalid  username or password!!!");
   }
   return createToken(user);
 }

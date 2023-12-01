@@ -2,12 +2,15 @@ import { request } from "../utils/request";
 
 const baseUrl = "http://localhost:3030/auth";
 
-export const authLogin = async (username, password) => {
+export const authLogin = async (data) => {
   try {
+    console.log(data);
+
     const result = await request("POST", baseUrl + "/login", {
-      username,
-      password,
+      username: data.username,
+      password: data.password,
     });
+    console.log(result);
 
     return result;
   } catch (error) {
@@ -17,11 +20,15 @@ export const authLogin = async (username, password) => {
 
 export const authRegister = async (data) => {
   try {
+    console.log(data);
+
     const result = await request("POST", baseUrl + "/register", {
-      username,
-      email,
-      password,
+      username: data.username,
+      email: data.email,
+      password: data.password,
     });
+
+    console.log(result);
 
     return result;
   } catch (error) {

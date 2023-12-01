@@ -5,6 +5,7 @@ const optionsBuild = (data) => {
     options.body = JSON.stringify(data);
     options.headers = {
       "content-type": "application/json",
+      "x-authorization": token,
     };
   }
 
@@ -24,6 +25,4 @@ export const request = async (method, url, data) => {
   } else {
     throw new Error(result.error);
   }
-
-  return result;
 };

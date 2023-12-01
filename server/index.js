@@ -28,7 +28,7 @@ async function startServer() {
   app.use(express.urlencoded({ extended: false }));
   app.use(cors());
   app.use(bodyParser.json());
-  //   app.use(session());
+  app.use(session());
 
   app.listen("3030", () => console.log("Server operational on port: 3030!"));
   app.get("/", (req, res) => {

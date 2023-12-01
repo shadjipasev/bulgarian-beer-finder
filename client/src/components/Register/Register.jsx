@@ -1,11 +1,22 @@
+import { useContext } from "react";
+import useForm from "../../hooks/useForm";
 import "./register.css";
+import AuthContext from "../contexts/authContext";
+import { authRegister } from "../../services/authServices";
 
 export default function Register() {
+  const { setSession } = useContext(AuthContext);
+
+  const registerSubmitHandler = async (values) => {
+    const response = await authRegister(values);
+
+    setSession(response);
+  };
   const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
-    email: "",
     username: "",
+    email: "",
     password: "",
-    rePass,
+    rePass: "",
   });
 
   return (
@@ -13,19 +24,20 @@ export default function Register() {
       <div className="form">
         <form onSubmit={onSubmit}>
           <input
-            type="email"
-            placeholder="email"
-            name="email"
-            value={values.email}
-            onChange={onChange}
-          />
-          <input
             type="text"
             placeholder="username"
             name="username"
             value={values.username}
             onChange={onChange}
           />
+          <input
+            type="email"
+            placeholder="email"
+            name="email"
+            value={values.email}
+            onChange={onChange}
+          />
+
           <input
             type="password"
             placeholder="password"
@@ -37,7 +49,7 @@ export default function Register() {
             type="password"
             placeholder="Repeat password"
             name="rePass"
-            value={rePass}
+            value={values.rePass}
             onChange={onChange}
           />
 

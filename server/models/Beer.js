@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 
 const beerSchema = new Schema({
   name: { type: String, required: true },
@@ -6,6 +6,7 @@ const beerSchema = new Schema({
   price: { type: Number, required: true },
   type: { type: String, required: true },
   imgUrl: { type: String, required: true },
+  creator: { type: Types.ObjectId, ref: "User" },
 });
 
 const Beer = model("Beer", beerSchema);
