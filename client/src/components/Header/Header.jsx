@@ -28,6 +28,12 @@ export default function Header() {
         <Link to="/create" className="head__right__nav">
           Create
         </Link>
+        <Link to="/login" className="head__right__nav">
+          Login
+        </Link>
+        <Link to="/register" className="head__right__nav">
+          Register
+        </Link>
         {/* Here the user will let the luck choose what beer he will drink */}
         {/* <Link to="/" className="head__right__nav">
           Тото Бира
