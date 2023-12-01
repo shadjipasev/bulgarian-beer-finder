@@ -19,5 +19,11 @@ export const request = async (method, url, data) => {
 
   const result = await response.json();
 
+  if (response.ok) {
+    return result;
+  } else {
+    throw new Error(result.error);
+  }
+
   return result;
 };

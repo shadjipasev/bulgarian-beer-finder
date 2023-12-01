@@ -6,6 +6,7 @@ const session = require("./middlewares/session");
 const beerController = require("./controllers/beerController");
 
 const bodyParser = require("body-parser");
+const authController = require("./controllers/authController");
 
 mongoose.set("strictQuery", true);
 
@@ -35,5 +36,6 @@ async function startServer() {
   });
 
   app.use("/beer", beerController);
+  app.use("/auth", authController);
 }
 startServer();

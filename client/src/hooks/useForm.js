@@ -19,6 +19,7 @@ export const useForm = (submitHandler, initialValue) => {
   return {
     values,
     onChange,
+    onSubmit,
   };
 };
 

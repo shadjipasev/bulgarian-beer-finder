@@ -1,12 +1,21 @@
 import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
+import { authLogin } from "../../services/authServices";
 import "./login.css";
+import AuthContext from "../contexts/authContext";
+import { useContext } from "react";
 
 export default function Login() {
-  const { values, onChange, onSubmit } = useForm({
+  const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
     name: "",
     password: "",
   });
+
+  const { setSession } = useContext(AuthContext);
+  const loginSubmitHandler = async (data) => {
+    const result = await authLogin(data.username, data.password);
+    setSession(result);
+  };
 
   return (
     <div className="login-page">

@@ -7,10 +7,17 @@ import CreateBeer from "./components/Create Beer/CreateBeer";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import AuthContext from "./components/contexts/authContext";
+import { useState } from "react";
 
 function App() {
+  const [auth, setAuth] = useState("auth", {});
+
+  const setSession = (data) => {
+    setAuth(data);
+  };
+
   return (
-    <AuthContext.Provider>
+    <AuthContext.Provider value={{ setSession, ...auth }}>
       <div className="layout">
         <Header />
         <Routes>
