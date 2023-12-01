@@ -6,19 +6,23 @@ import AllBeers from "./components/AllBeers/AllBeers";
 import CreateBeer from "./components/Create Beer/CreateBeer";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import AuthContext from "./components/contexts/authContext";
 
 function App() {
   return (
-    <div className="layout">
-      <Header />
-      <Routes>
-        <Route path="/all-beers" element={<AllBeers />}></Route>
-        <Route path="/create" element={<CreateBeer />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-      </Routes>
-      <Footer />
-    </div>
+    <AuthContext.Provider>
+      <div className="layout">
+        <Header />
+        <Routes>
+          <Route path="/all-beers" element={<AllBeers />}></Route>
+          <Route path="/create" element={<CreateBeer />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
+        </Routes>
+
+        <Footer />
+      </div>
+    </AuthContext.Provider>
   );
 }
 
