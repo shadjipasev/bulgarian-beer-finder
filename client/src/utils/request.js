@@ -4,8 +4,7 @@ const optionsBuild = (data) => {
   if (data) {
     options.body = JSON.stringify(data);
     options.headers = {
-      "content-type": "application/json",
-      "x-authorization": token,
+      "Content-Type": "application/json",
     };
   }
 
@@ -19,10 +18,10 @@ export const request = async (method, url, data) => {
   });
 
   const result = await response.json();
-
-  if (response.ok) {
-    return result;
-  } else {
-    throw new Error(result.error);
-  }
+  return result;
+  // if (result.ok) {
+  //   return result;
+  // } else {
+  //   throw new Error(result.error);
+  // }
 };

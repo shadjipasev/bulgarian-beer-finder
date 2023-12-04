@@ -8,7 +8,7 @@ const userSchema = new Schema({
     type: String,
     default: "user",
   },
-  basket: [{ type: Types.ObjectId, ref: "Beer" }],
+  basket: { type: Types.ObjectId, ref: "Cart" },
 });
 
 userSchema.index(

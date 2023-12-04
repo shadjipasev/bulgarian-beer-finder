@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import "./beerRecord.css";
 
-function BeerRecord({ imgUrl, name, type, quantity, price }) {
+function BeerRecord({ _id, imgUrl, name, type, quantity, price }) {
   return (
     <div className="beer-card">
       <img src={imgUrl} alt="Beer 1" />
@@ -9,7 +10,10 @@ function BeerRecord({ imgUrl, name, type, quantity, price }) {
       <p>{quantity}</p>
       <p>{price}</p>
 
-      <button>Add to Cart</button>
+      <Link className="buttons">Add to Cart</Link>
+      <Link to={`/details/${_id}`} className="buttons">
+        Details
+      </Link>
     </div>
   );
 }

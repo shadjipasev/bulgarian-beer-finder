@@ -1,7 +1,16 @@
 import { Link, Route, Routes } from "react-router-dom";
 import logo_v2 from "../../assets/logo_v2.png";
 import "./header.css";
+import { useContext } from "react";
+import AuthContext from "../../contexts/authContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+
 export default function Header() {
+  const { user } = useContext(AuthContext);
+
+  console.log(user);
+
   return (
     <header className="head">
       <div className="head__left">
@@ -16,15 +25,17 @@ export default function Header() {
         placeholder="Потърси любимата си бира.."
       ></input>
       <div className="head__right">
+        <Link to="/all-beers" className="head__right__nav">
+          Магазини
+        </Link>
         <Link to="/catalogs" className="head__right__nav">
           Каталози
         </Link>
-        <Link to="/stores" className="head__right__nav">
-          Магазини
-        </Link>
-        <Link to="/offers" className="head__right__nav">
+
+        {/* <Link to="/offers" className="head__right__nav">
           Оферти
-        </Link>
+        </Link> */}
+
         <Link to="/create" className="head__right__nav">
           Create
         </Link>
@@ -34,6 +45,12 @@ export default function Header() {
         <Link to="/register" className="head__right__nav">
           Register
         </Link>
+        <Link to="/shopping-cart" className="head__right__nav">
+          <FontAwesomeIcon icon={faShoppingCart} className="shopping__cart" />
+        </Link>
+
+        <p>Здравей, {user.username}</p>
+
         {/* Here the user will let the luck choose what beer he will drink */}
         {/* <Link to="/" className="head__right__nav">
           Тото Бира

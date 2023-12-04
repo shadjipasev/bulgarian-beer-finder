@@ -1,9 +1,11 @@
-import "./createBeer.css";
+import "./editBeer.css";
 import { useState, useEffect } from "react";
 import * as beerServices from "../../services/beerServices";
-import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-export default function CreateBeer() {
+export default function EditBeer() {
+  const { beerId } = useParams();
+
   const [beerData, setBeerData] = useState({
     name: "",
     price: "",
@@ -13,18 +15,18 @@ export default function CreateBeer() {
     description: "",
   });
 
-  const navigate = useNavigate();
-  const onCreateBeerHandler = async (e) => {
-    e.preventDefault();
-    // const beerData = Object.fromEntries(new FormData(e.currentTarget));
-    console.log(beerData);
-    try {
-      const res = await beerServices.createBeer(beerData);
+  useEffect(() => {
+    // console.log();
+    beerServices.getCurrentBeer(beerId).then((result) => {
+      setBeerData(result);
+    });
+  }, []);
 
-      if (res.ok) {
-        console.log(res);
-        navigate("/all-beers");
-      }
+  const onEditBeerHandler = async (e) => {
+    e.preventDefault();
+    // console.log(beerData);
+    try {
+      await beerServices.editBeer(beerId, beerData);
     } catch (error) {
       console.log(error);
     }
@@ -40,8 +42,8 @@ export default function CreateBeer() {
 
   return (
     <div className="container">
-      <h1>Create New Beer</h1>
-      <form className="beer-form" onSubmit={onCreateBeerHandler}>
+      <h1>Edid Beer</h1>
+      <form className="beer-form" onSubmit={onEditBeerHandler}>
         <div className="form-group">
           <label htmlFor="name">Beer Name:</label>
           <input
@@ -59,6 +61,7 @@ export default function CreateBeer() {
             type="number"
             id="price"
             name="price"
+            step="0.01"
             onChange={onChange}
             value={beerData.price}
           />
@@ -121,7 +124,7 @@ export default function CreateBeer() {
         </div>
 
         <div className="form-group">
-          <button type="submit">Create Beer</button>
+          <button type="submit">Edit Beer</button>
         </div>
       </form>
     </div>

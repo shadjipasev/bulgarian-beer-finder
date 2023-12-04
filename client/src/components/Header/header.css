@@ -58,3 +58,7 @@
 .head__right__nav:hover {
   background-color: antiquewhite;
 }
+
+.shopping__cart {
+  font-size: 20px;
+}

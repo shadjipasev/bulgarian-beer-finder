@@ -1,7 +1,10 @@
+/* Styling for beer cards */
+
 .beer-card {
-  width: 300px;
-  margin: 20px;
-  padding: 15px;
+  width: 250px;
+  height: 300px;
+  margin: 15px;
+  padding: 10px 0px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
@@ -9,8 +12,8 @@
 }
 
 .beer-card img {
-  width: 100%;
-  height: auto;
+  max-width: 200px;
+  max-height: 220px;
   border-radius: 5px;
   margin-bottom: 15px;
 }
@@ -24,8 +27,9 @@
   margin-bottom: 10px;
 }
 
-.beer-card button {
-  padding: 8px 16px;
+.beer-card .buttons {
+  margin: 5px;
+  padding: 4px 10px;
   background-color: #ff9900;
   color: #fff;
   border: none;

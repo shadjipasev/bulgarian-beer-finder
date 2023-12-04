@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import { authLogin } from "../../services/authServices";
 import "./login.css";
-import AuthContext from "../contexts/authContext";
+import AuthContext from "../../contexts/authContext";
 import { useContext } from "react";
 
 export default function Login() {

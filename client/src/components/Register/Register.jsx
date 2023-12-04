@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import useForm from "../../hooks/useForm";
 import "./register.css";
-import AuthContext from "../contexts/authContext";
+import AuthContext from "../../contexts/authContext";
 import { authRegister } from "../../services/authServices";
 
 export default function Register() {

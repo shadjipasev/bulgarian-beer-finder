@@ -15,17 +15,23 @@ beerController.get("/", async (req, res) => {
 });
 
 beerController.post("/create", async (req, res) => {
+  // console.log(req.body);
+
   const data = {
     name: req.body.name,
-    quantity: req.body.quantity,
     price: req.body.price,
+    quantity: req.body.quantity,
     type: req.body.type,
     imgUrl: req.body.imgUrl,
-    country: req.body.country,
+    description: req.body.description,
   };
 
   try {
-    await createBeer(data);
+    const beer = await createBeer(data);
+
+    res.status(200);
+    res.json(beer);
+    res.end();
   } catch (error) {
     res.status(400).json({
       message: error.message,
@@ -42,7 +48,9 @@ beerController.get("/:type", async (req, res) => {
 beerController.get("/details/:id", async (req, res) => {
   const beerId = req.params.id;
   const beer = await getBeerById(beerId);
-  return beer;
+  // console.log(beer);
+  res.status(200).json(beer);
+  res.end();
 });
 
 beerController.get("/delete/:id", async (req, res) => {
@@ -58,10 +66,12 @@ beerController.put("/edit/:id", async (req, res) => {
     price: req.body.price,
     type: req.body.type,
     imgUrl: req.body.imgUrl,
-    country: req.body.country,
+    description: req.body.description,
   };
 
   try {
+    // const beer = await editBeer(beerId, data);
+    // json.status(200).json(beer);
     await editBeer(beerId, data);
   } catch (error) {
     res.status(400).json({

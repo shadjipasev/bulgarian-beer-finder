@@ -13,12 +13,11 @@ export default function AllBeers() {
   return (
     <>
       <h1>Beer Shop Catalog</h1>
-      <div className="container">
-        <div className="beer-cards">
-          {getBeers.map((beer) => (
-            <BeerRecord key={beer._id} {...beer} />
-          ))}
-        </div>
+
+      <div className="beer-cards">
+        {getBeers.map((beer) => (
+          <BeerRecord key={beer._id} {...beer} />
+        ))}
       </div>
     </>
   );

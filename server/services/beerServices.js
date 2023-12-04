@@ -9,7 +9,10 @@ async function getAllBeers() {
 }
 
 async function getBeerById(id) {
-  return await Beer.findById(id);
+  // return await Beer.findById(id);
+
+  const beer = await Beer.findById(id);
+  return beer;
 }
 
 async function editBeer(id, data) {
@@ -20,27 +23,27 @@ async function editBeer(id, data) {
   }
 
   beer.name = data.name;
-  beer.material = data.material;
-  beer.country = data.country;
   beer.price = data.price;
+  beer.quantity = data.quantity;
+  beer.type = data.type;
   beer.imgUrl = data.imgUrl;
   beer.description = data.description;
-  beer.type = data.type;
 
   await beer.save();
 }
 
 async function createBeer(data) {
-  await Beer.create(data);
+  return await Beer.create(data);
 }
 
 async function delById(id) {
   const beer = await Beer.findById(id);
-
+  // console.log(beer)
   if (!beer) {
     throw new Error("Beer not found");
   }
-  await Beer.findByIdAndDelete(id);
+  const res = await Beer.findByIdAndDelete(id);
+  console.log("Delete" + res);
 }
 
 module.exports = {
