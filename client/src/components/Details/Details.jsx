@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./details.css";
 import { deleteBeer, getCurrentBeer } from "../../services/beerServices";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { addToCart } from "../../services/cartServices";
 
 export default function Details() {
   const [beer, setBeer] = useState([]);
@@ -23,6 +24,10 @@ export default function Details() {
     navigate("/all-beers");
   }
 
+  async function addToCartHandler() {
+    await addToCart(beerId);
+  }
+
   console.log(beer);
 
   return (
@@ -36,7 +41,7 @@ export default function Details() {
         <p>Type: {beer.type}</p>
 
         <p>{beer.description}</p>
-        <button>Add to Cart</button>
+        <button onClick={addToCartHandler}>Add to Cart</button>
 
         <button>
           <Link to={`/edit/${beerId}`}>Edit</Link>

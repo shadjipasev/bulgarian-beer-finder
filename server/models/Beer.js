@@ -7,8 +7,6 @@ const beerSchema = new Schema({
   type: { type: String, required: true },
   imgUrl: { type: String, required: true },
   description: { type: String, required: true },
-
-  creator: { type: Types.ObjectId, ref: "User" },
 });
 
 const Beer = model("Beer", beerSchema);

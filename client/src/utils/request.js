@@ -1,11 +1,19 @@
+// import { useContext } from "react";
+// import AuthContext from "../contexts/authContext";
+
 const optionsBuild = (data) => {
   const options = {};
-
+  // const { user } = useContext(AuthContext);
   if (data) {
     options.body = JSON.stringify(data);
     options.headers = {
       "Content-Type": "application/json",
+      // "x-authorization": user.accessToken,
     };
+    // } else {
+    //   options.headers = {
+    //     "x-authorization": user.accessToken,
+    //   };
   }
 
   return options;

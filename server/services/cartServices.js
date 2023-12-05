@@ -1,4 +1,16 @@
 const Cart = require("../models/Cart");
+const { getBeerById } = require("./beerServices");
+
+async function addToCart(beerId, userId) {
+  const cart = await Cart.findOne({ user: userId });
+  const beer = await getToolById(beerId);
+
+  //   console.log("cartSize");
+  cart.beers.push(beer);
+  cart.beerPrice += beer.price;
+
+  await cart.save();
+}
 
 async function getAllCartItems(userId) {
   const cart = await Cart.findOne({ user: userId }).populate("beers");
@@ -7,10 +19,10 @@ async function getAllCartItems(userId) {
 }
 
 async function createCart(beerId, userId) {
-  const tool = await getToolById(beerId);
+  const beer = await getBeerById(beerId);
 
   console.log("Inside createCart function");
-  console.log(tool);
+  console.log(beer);
 
   await Cart.create({
     user: userId,
@@ -21,4 +33,6 @@ async function createCart(beerId, userId) {
 
 module.exports = {
   getAllCartItems,
+  createCart,
+  addToCart,
 };

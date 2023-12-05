@@ -12,6 +12,6 @@ module.exports = () => (req, res, next) => {
       return res.status(401).json({ message: "Invalid authorization token" });
     }
   }
-
+  console.log("token =>", token);
   next();
 };

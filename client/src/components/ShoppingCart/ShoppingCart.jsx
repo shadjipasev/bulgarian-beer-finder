@@ -1,6 +1,10 @@
+import { useState } from "react";
 import "./shoppingCart.css";
+import { useParams } from "react-router-dom";
 
 export default function ShoppingCart() {
+  const [beer, setBeer] = useState([]);
+
   return (
     <div id="app">
       {/* <!-- Header --> */}
@@ -27,7 +31,7 @@ export default function ShoppingCart() {
                 </div>
                 <div className="detail">
                   <div className="name">
-                    <a href="#">Product name</a>
+                    <a href="#"></a>
                   </div>
                   <div className="description">Product description</div>
                   <div className="price">Product price</div>
