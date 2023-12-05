@@ -8,20 +8,23 @@ const { decodeToken } = require("../services/userServices");
 
 const cartController = require("express").Router();
 
-cartController.get("/get", async (req, res) => {
+cartController.get("/", async (req, res) => {
   const userPayload = decodeToken(req.token);
+  //   console.log("userPayload == " + userPayload);
   const userId = userPayload._id;
 
   const cart = await getAllCartItems(userId);
-
+  console.log(cart);
   res.json(cart);
   res.end();
 });
 
 cartController.post("/add/:id", async (req, res) => {
-  //   console.log("work: 1 | beerController/cart/add:id");
+  console.log("work: 1 | beerController/cart/add:id");
   const beerId = req.params.id;
   const userPayload = decodeToken(req.token);
+  //   console.log("userPayload == " + userPayload);
+
   const userId = userPayload._id;
 
   let cart = await Cart.findOne({ user: userId });
@@ -62,3 +65,5 @@ cartController.post("/add/:id", async (req, res) => {
     });
   }
 });
+
+module.exports = cartController;

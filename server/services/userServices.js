@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-const jwtDecode = require("jwt-decode");
+// import { jwtDecode } from "jwt-decode";
 
 const secret = "q-asd231adfas12321kl";
 
@@ -58,7 +58,8 @@ function parseToken(token) {
 }
 
 function decodeToken(token) {
-  return jwtDecode(token);
+  return jwt.decode(token);
+  // console.log(jwt.decode(token));
 }
 
 module.exports = {

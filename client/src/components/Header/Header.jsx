@@ -7,9 +7,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
-  const { user } = useContext(AuthContext);
+  const { user, setSession } = useContext(AuthContext);
 
   console.log(user);
+
+  function logoutHandler() {
+    setSession({});
+    localStorage.clear();
+  }
 
   return (
     <header className="head">
@@ -32,19 +37,20 @@ export default function Header() {
           Каталози
         </Link>
 
-        {/* <Link to="/offers" className="head__right__nav">
-          Оферти
-        </Link> */}
-
         <Link to="/create" className="head__right__nav">
           Create
         </Link>
+
         <Link to="/login" className="head__right__nav">
           Login
         </Link>
         <Link to="/register" className="head__right__nav">
           Register
         </Link>
+        <Link onClick={logoutHandler} className="head__right__nav">
+          Logout
+        </Link>
+
         <Link to="/shopping-cart" className="head__right__nav">
           <FontAwesomeIcon icon={faShoppingCart} className="shopping__cart" />
         </Link>

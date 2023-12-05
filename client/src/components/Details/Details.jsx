@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./details.css";
 import { deleteBeer, getCurrentBeer } from "../../services/beerServices";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../../services/cartServices";
+import AuthContext from "../../contexts/authContext";
 
 export default function Details() {
   const [beer, setBeer] = useState([]);
 
   const { beerId } = useParams();
+  const { user } = useContext(AuthContext);
   console.log(beerId);
 
   const navigate = useNavigate();
@@ -25,7 +27,8 @@ export default function Details() {
   }
 
   async function addToCartHandler() {
-    await addToCart(beerId);
+    console.log("This is token " + user.accessToken);
+    const res = await addToCart(beerId, user.accessToken);
   }
 
   console.log(beer);

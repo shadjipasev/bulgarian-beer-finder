@@ -3,11 +3,11 @@ const { getBeerById } = require("./beerServices");
 
 async function addToCart(beerId, userId) {
   const cart = await Cart.findOne({ user: userId });
-  const beer = await getToolById(beerId);
+  const beer = await getBeerById(beerId);
 
   //   console.log("cartSize");
   cart.beers.push(beer);
-  cart.beerPrice += beer.price;
+  cart.totalPrice += beer.price;
 
   await cart.save();
 }

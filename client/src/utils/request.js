@@ -8,7 +8,6 @@ const optionsBuild = (data) => {
     options.body = JSON.stringify(data);
     options.headers = {
       "Content-Type": "application/json",
-      // "x-authorization": user.accessToken,
     };
     // } else {
     //   options.headers = {
