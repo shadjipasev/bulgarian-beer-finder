@@ -41,8 +41,9 @@ beerController.post("/create", async (req, res) => {
 
 beerController.get("/:type", async (req, res) => {
   const beerType = req.params.type;
+  console.log(beerType);
   const beers = await getAllBeersType(beerType);
-  return beers;
+  res.json(beers);
 });
 
 beerController.get("/details/:id", async (req, res) => {

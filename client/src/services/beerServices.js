@@ -31,3 +31,9 @@ export const deleteBeer = async (beerId) => {
 
   return result;
 };
+
+export const getByType = async (type) => {
+  const result = await request("GET", `${baseUrl}/${type}`);
+
+  return result;
+};

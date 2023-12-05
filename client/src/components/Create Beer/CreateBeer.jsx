@@ -8,7 +8,7 @@ export default function CreateBeer() {
     name: "",
     price: "",
     quantity: "",
-    type: "IPA",
+    type: "Lager",
     imgUrl: "",
     description: "",
   });
@@ -83,8 +83,8 @@ export default function CreateBeer() {
             onChange={onChange}
             value={beerData.type}
           >
-            <option onChange={onChange} value="IPA">
-              IPA
+            <option onChange={onChange} value="Lager">
+              Lager
             </option>
             <option onChange={onChange} value="Stout">
               Stout

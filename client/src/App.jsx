@@ -15,6 +15,7 @@ import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import { UserGuard } from "./guards/UserGuard";
 import { GuestGuard } from "./guards/GuestGuard";
 import { AdminGuard } from "./guards/AdminGuard";
+import BeerType from "./components/BeerType/BeerType";
 
 function App() {
   const [user, setAuth] = useLocalSorage("auth", {});
@@ -30,6 +31,8 @@ function App() {
         <Routes>
           <Route path="/all-beers" element={<AllBeers />}></Route>
           <Route path="/catalogs" element={<Catalogs />}></Route>
+          <Route path="/beer-type" element={<BeerType />}></Route>
+
           <Route path="/details/:beerId" element={<Details />}></Route>
 
           <Route element={<UserGuard />}>
