@@ -9,7 +9,7 @@ export default function AllBeers() {
     getAll().then((data) => setBeer(data));
   }, []);
 
-  console.log(getBeers);
+  // console.log(getBeers);
   return (
     <>
       <h1>Beer Shop Catalog</h1>

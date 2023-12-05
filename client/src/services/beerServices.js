@@ -21,9 +21,9 @@ export const getCurrentBeer = async (beerId) => {
 };
 
 export const editBeer = async (beerId, data) => {
-  const result = await request("PUT", baseUrl + `/edit/${beerId}`, data);
+  await request("PUT", baseUrl + `/edit/${beerId}`, data);
 
-  return result;
+  // return result;
 };
 
 export const deleteBeer = async (beerId) => {

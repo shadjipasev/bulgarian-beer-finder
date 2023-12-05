@@ -1,16 +1,16 @@
 import "./editBeer.css";
 import { useState, useEffect } from "react";
 import * as beerServices from "../../services/beerServices";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function EditBeer() {
   const { beerId } = useParams();
-
+  const navigate = useNavigate();
   const [beerData, setBeerData] = useState({
     name: "",
     price: "",
     quantity: "",
-    type: "IPA",
+    type: "Lager",
     imgUrl: "",
     description: "",
   });
@@ -24,9 +24,10 @@ export default function EditBeer() {
 
   const onEditBeerHandler = async (e) => {
     e.preventDefault();
-    // console.log(beerData);
+    console.log(beerData);
     try {
       await beerServices.editBeer(beerId, beerData);
+      navigate("/all-beers");
     } catch (error) {
       console.log(error);
     }
@@ -81,13 +82,14 @@ export default function EditBeer() {
         <div className="form-group">
           <label htmlFor="type">Type:</label>
           <select
+            type="select"
             id="type"
             name="type"
             onChange={onChange}
             value={beerData.type}
           >
             <option onChange={onChange} value="IPA">
-              IPA
+              Lager
             </option>
             <option onChange={onChange} value="Stout">
               Stout
@@ -116,7 +118,6 @@ export default function EditBeer() {
           <label htmlFor="description">Description:</label>
           <textarea
             type="text"
-            // id="imgUrl"
             name="description"
             onChange={onChange}
             value={beerData.description}

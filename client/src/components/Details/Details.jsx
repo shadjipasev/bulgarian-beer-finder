@@ -24,14 +24,14 @@ export default function Details() {
     });
   }, []);
 
-  function deleteHandler() {
-    deleteBeer(beerId);
+  async function deleteHandler() {
+    await deleteBeer(beerId);
     navigate("/all-beers");
   }
 
   async function addToCartHandler() {
     console.log("This is token " + user.accessToken);
-    const res = await addToCart(beerId, user.accessToken);
+    await addToCart(beerId, user.accessToken);
   }
 
   console.log(beer);

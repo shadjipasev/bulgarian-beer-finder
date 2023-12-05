@@ -17,11 +17,11 @@ export default function CreateBeer() {
   const onCreateBeerHandler = async (e) => {
     e.preventDefault();
     // const beerData = Object.fromEntries(new FormData(e.currentTarget));
-    console.log(beerData);
+    // console.log(beerData);
     try {
       const res = await beerServices.createBeer(beerData);
-
-      if (res.ok) {
+      console.log(res);
+      if (res) {
         console.log(res);
         navigate("/all-beers");
       }

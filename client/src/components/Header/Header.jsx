@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import logo_v2 from "../../assets/logo_v2.png";
 import "./header.css";
 import { useContext } from "react";
@@ -8,14 +8,15 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
   const { user, setSession } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const isAuth = user?._id ? true : false;
   const isAdmin = user?._id === "656f7b9f5989462a5ee0deba" ? true : false;
-  console.log(user);
+  // console.log(user);
 
-  function logoutHandler() {
-    setSession({});
+  async function logoutHandler() {
+    await setSession({});
     localStorage.clear();
+    navigate("/all-beers");
   }
 
   return (

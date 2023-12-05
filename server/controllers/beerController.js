@@ -71,9 +71,10 @@ beerController.put("/edit/:id", async (req, res) => {
   };
 
   try {
-    // const beer = await editBeer(beerId, data);
-    // json.status(200).json(beer);
     await editBeer(beerId, data);
+    res.status(200);
+    res.end();
+    // await editBeer(beerId, data);
   } catch (error) {
     res.status(400).json({
       message: error.message,
