@@ -12,6 +12,9 @@ export default function Details() {
   const { user } = useContext(AuthContext);
   console.log(beerId);
 
+  const isAuth = user?._id ? true : false;
+  const isAdmin = user?._id === "656f7b9f5989462a5ee0deba" ? true : false;
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,13 +47,16 @@ export default function Details() {
         <p>Type: {beer.type}</p>
 
         <p>{beer.description}</p>
-        <button onClick={addToCartHandler}>Add to Cart</button>
+        {isAuth && <button onClick={addToCartHandler}>Add to Cart</button>}
 
-        <button>
-          <Link to={`/edit/${beerId}`}>Edit</Link>
-        </button>
-
-        <button onClick={deleteHandler}>Delete</button>
+        {isAdmin && (
+          <>
+            <button>
+              <Link to={`/edit/${beerId}`}>Edit</Link>
+            </button>
+            <button onClick={deleteHandler}>Delete</button>
+          </>
+        )}
       </div>
     </div>
   );

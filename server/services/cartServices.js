@@ -14,7 +14,7 @@ async function addToCart(beerId, userId) {
 
 async function getAllCartItems(userId) {
   const cart = await Cart.findOne({ user: userId }).populate("beers");
-  console.log(cart.beers);
+  //   console.log(cart.beers);
   return cart.beers;
 }
 

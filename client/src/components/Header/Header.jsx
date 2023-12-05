@@ -9,6 +9,8 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 export default function Header() {
   const { user, setSession } = useContext(AuthContext);
 
+  const isAuth = user?._id ? true : false;
+  const isAdmin = user?._id === "656f7b9f5989462a5ee0deba" ? true : false;
   console.log(user);
 
   function logoutHandler() {
@@ -37,25 +39,40 @@ export default function Header() {
           Каталози
         </Link>
 
-        <Link to="/create" className="head__right__nav">
-          Create
-        </Link>
+        {!isAuth && (
+          <>
+            <Link to="/login" className="head__right__nav">
+              Login
+            </Link>
+            <Link to="/register" className="head__right__nav">
+              Register
+            </Link>
+          </>
+        )}
 
-        <Link to="/login" className="head__right__nav">
-          Login
-        </Link>
-        <Link to="/register" className="head__right__nav">
-          Register
-        </Link>
-        <Link onClick={logoutHandler} className="head__right__nav">
-          Logout
-        </Link>
+        {isAuth && (
+          <>
+            <Link onClick={logoutHandler} className="head__right__nav">
+              Logout
+            </Link>
+            {isAdmin && (
+              <>
+                {" "}
+                <Link to="/create" className="head__right__nav">
+                  Create
+                </Link>
+              </>
+            )}
+            <Link to="/shopping-cart" className="head__right__nav">
+              <FontAwesomeIcon
+                icon={faShoppingCart}
+                className="shopping__cart"
+              />
+            </Link>
 
-        <Link to="/shopping-cart" className="head__right__nav">
-          <FontAwesomeIcon icon={faShoppingCart} className="shopping__cart" />
-        </Link>
-
-        <p>Здравей, {user.username}</p>
+            <p>Здравей, {user.username}</p>
+          </>
+        )}
 
         {/* Here the user will let the luck choose what beer he will drink */}
         {/* <Link to="/" className="head__right__nav">
