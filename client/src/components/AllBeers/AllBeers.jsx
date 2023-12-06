@@ -11,14 +11,14 @@ export default function AllBeers() {
 
   // console.log(getBeers);
   return (
-    <>
-      <h1>Beer Shop Catalog</h1>
+    <div className="beer-catalog">
+      <h1 className="beer-catalog-title">Beer Shop Catalog</h1>
 
       <div className="beer-cards">
         {getBeers.map((beer) => (
           <BeerRecord key={beer._id} {...beer} />
         ))}
       </div>
-    </>
+    </div>
   );
 }

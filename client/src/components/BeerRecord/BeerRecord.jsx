@@ -18,9 +18,11 @@ function BeerRecord({ _id, imgUrl, name, type, quantity, price }) {
     <div className="beer-card">
       <img src={imgUrl} alt="Beer 1" />
       <h2>{name}</h2>
-      <p>{type}</p>
-      <p>{quantity}</p>
-      <p>{price}</p>
+      <p>Вид: {type}</p>
+      {/* <p>Количество:</p> */}
+      <p>
+        {quantity} х {price}лв.
+      </p>
 
       {isAuth && (
         <>

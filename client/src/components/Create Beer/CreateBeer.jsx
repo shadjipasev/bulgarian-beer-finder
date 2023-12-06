@@ -39,11 +39,11 @@ export default function CreateBeer() {
   };
 
   return (
-    <div className="container">
-      <h1>Create New Beer</h1>
+    <div className="create__container">
+      <h1>Създай бира</h1>
       <form className="beer-form" onSubmit={onCreateBeerHandler}>
         <div className="form-group">
-          <label htmlFor="name">Beer Name:</label>
+          <label htmlFor="name">Име:</label>
           <input
             type="text"
             id="name"
@@ -54,7 +54,7 @@ export default function CreateBeer() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="beer-price">Price ($):</label>
+          <label htmlFor="beer-price">Цена (лв):</label>
           <input
             type="number"
             id="price"
@@ -65,7 +65,7 @@ export default function CreateBeer() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="beer-quantity">Quantity:</label>
+          <label htmlFor="beer-quantity">Количество:</label>
           <input
             type="number"
             id="quantity"
@@ -76,7 +76,7 @@ export default function CreateBeer() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="type">Type:</label>
+          <label htmlFor="type">Тип:</label>
           <select
             id="type"
             name="type"
@@ -99,7 +99,7 @@ export default function CreateBeer() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="imgUrl">Image URL:</label>
+          <label htmlFor="imgUrl">Снимка:</label>
           <input
             type="text"
             id="imgUrl"
@@ -108,12 +108,10 @@ export default function CreateBeer() {
             value={beerData.imgUrl}
           />
         </div>
-
+        <label htmlFor="description">Описание:</label>
         <div className="form-group">
-          <label htmlFor="description">Description:</label>
           <textarea
             type="text"
-            // id="imgUrl"
             name="description"
             onChange={onChange}
             value={beerData.description}
@@ -121,7 +119,7 @@ export default function CreateBeer() {
         </div>
 
         <div className="form-group">
-          <button type="submit">Create Beer</button>
+          <button type="submit">Създай</button>
         </div>
       </form>
     </div>

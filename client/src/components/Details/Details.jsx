@@ -43,19 +43,27 @@ export default function Details() {
       </div>
       <div className="description">
         <h2>{beer.name}</h2>
-        <p>Price: {beer.price}</p>
-        <p>Type: {beer.type}</p>
+        <br />
 
-        <p>{beer.description}</p>
-        {isAuth && <button onClick={addToCartHandler}>Add to Cart</button>}
+        <p>Цена: {beer.price}</p>
+        <p>Тип: {beer.type}</p>
+
+        <p>Описание: {beer.description}</p>
+        {isAuth && (
+          <button className="cart__button" onClick={addToCartHandler}>
+            Add to Cart
+          </button>
+        )}
 
         {isAdmin && (
-          <>
-            <button>
+          <div className="admin__panel">
+            <button className="admin__buttons">
               <Link to={`/edit/${beerId}`}>Edit</Link>
             </button>
-            <button onClick={deleteHandler}>Delete</button>
-          </>
+            <button className="admin__buttons" onClick={deleteHandler}>
+              Delete
+            </button>
+          </div>
         )}
       </div>
     </div>

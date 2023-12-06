@@ -7,7 +7,7 @@ main {
 }
 
 .product {
-  width: 200px;
+  width: 280px;
   background-color: #fafafa;
   position: relative;
   overflow: hidden;
@@ -15,7 +15,9 @@ main {
   flex-direction: column;
   align-items: center;
   border-radius: 1rem;
-  box-shadow: 0 0 0 transparent;
+  box-shadow: 5px 5px 5px #45a158;
+  border: 3px solid #ccc;
+  border-radius: 20px;
   transition: box-shadow 0.5s ease-in-out;
 }
 
@@ -111,7 +113,7 @@ main {
   width: 1px;
 }
 
-@keyframes rotate {
+/* @keyframes rotate {
   0% {
     transform: translate(-50%, 0) rotateZ(0deg);
   }
@@ -121,4 +123,4 @@ main {
   100% {
     transform: translate(-50%, 0%) rotateZ(360deg);
   }
-}
+} */

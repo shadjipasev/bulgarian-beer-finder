@@ -42,11 +42,11 @@ export default function EditBeer() {
   };
 
   return (
-    <div className="container">
-      <h1>Edid Beer</h1>
+    <div className="create__container">
+      <h1>Редактирай запис</h1>
       <form className="beer-form" onSubmit={onEditBeerHandler}>
         <div className="form-group">
-          <label htmlFor="name">Beer Name:</label>
+          <label htmlFor="name">Име:</label>
           <input
             type="text"
             id="name"
@@ -57,7 +57,7 @@ export default function EditBeer() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="beer-price">Price ($):</label>
+          <label htmlFor="beer-price">Цена (лв):</label>
           <input
             type="number"
             id="price"
@@ -69,7 +69,7 @@ export default function EditBeer() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="beer-quantity">Quantity:</label>
+          <label htmlFor="beer-quantity">Количество:</label>
           <input
             type="number"
             id="quantity"
@@ -80,7 +80,7 @@ export default function EditBeer() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="type">Type:</label>
+          <label htmlFor="type">Тип:</label>
           <select
             type="select"
             id="type"
@@ -104,7 +104,7 @@ export default function EditBeer() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="imgUrl">Image URL:</label>
+          <label htmlFor="imgUrl">Снимка:</label>
           <input
             type="text"
             id="imgUrl"
@@ -113,9 +113,8 @@ export default function EditBeer() {
             value={beerData.imgUrl}
           />
         </div>
-
+        <label htmlFor="description">Описание:</label>
         <div className="form-group">
-          <label htmlFor="description">Description:</label>
           <textarea
             type="text"
             name="description"
@@ -125,7 +124,7 @@ export default function EditBeer() {
         </div>
 
         <div className="form-group">
-          <button type="submit">Edit Beer</button>
+          <button type="submit">Редактирай</button>
         </div>
       </form>
     </div>

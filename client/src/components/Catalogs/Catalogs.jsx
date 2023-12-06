@@ -21,7 +21,7 @@ export default function Catalogs() {
         </div>
         <div className="product__title">Lager</div>
         <div className="product__actions">
-          <Link to="/beer-type?beer=Lager">Go To Catalog</Link>
+          <Link to="/beer-type?beer=Lager">Разгледай каталог</Link>
         </div>
       </div>
 
@@ -31,7 +31,7 @@ export default function Catalogs() {
         </div>
         <div className="product__title">Stout</div>
         <div className="product__actions">
-          <Link to="/beer-type?beer=Stout">Go To Catalog</Link>
+          <Link to="/beer-type?beer=Stout">Разгледай каталог</Link>
         </div>
       </div>
 
@@ -41,7 +41,7 @@ export default function Catalogs() {
         </div>
         <div className="product__title">Pilsner</div>
         <div className="product__actions">
-          <Link to="/beer-type?beer=Pilsner">Go To Catalog</Link>
+          <Link to="/beer-type?beer=Pilsner">Разгледай каталог</Link>
         </div>
       </div>
 
@@ -51,7 +51,7 @@ export default function Catalogs() {
         </div>
         <div className="product__title">Ale</div>
         <div className="product__actions">
-          <Link to="/beer-type?beer=Ale">Go To Catalog</Link>
+          <Link to="/beer-type?beer=Ale">Разгледай каталог</Link>
         </div>
       </div>
     </main>

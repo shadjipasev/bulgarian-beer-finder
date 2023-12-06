@@ -15,14 +15,14 @@ export default function BeerType() {
 
   console.log(getBeers);
   return (
-    <>
-      <h1>Beer Catalog</h1>
+    <div className="beer-catalog">
+      <h1 className="beer-catalog-title">{type} Beer Catalog</h1>
 
       <div className="beer-cards">
         {getBeers.map((beer) => (
           <BeerRecord key={beer._id} {...beer} />
         ))}
       </div>
-    </>
+    </div>
   );
 }

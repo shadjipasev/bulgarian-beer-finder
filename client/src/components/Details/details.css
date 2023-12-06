@@ -60,6 +60,8 @@
   float: left;
   width: 55%;
   border-left: 2px solid #efefef;
+  display: flex;
+  flex-direction: column;
 }
 
 .card .description h1 {
@@ -86,11 +88,11 @@
 }
 
 .card .description p {
-  font-size: 12px;
+  font-size: 17px;
   line-height: 20px;
   color: #727272;
   padding: 5px 0;
-  margin: 0;
+  margin: 3px;
 }
 
 .card .description button {
@@ -114,4 +116,16 @@
   border: 1px solid #aedaa6;
   color: #aedaa6;
   cursor: pointer;
+}
+
+.cart__button {
+  min-width: 98%;
+}
+
+.admin__panel {
+  margin-top: 1rem;
+}
+
+.admin__buttons {
+  min-width: 48.3%;
 }
