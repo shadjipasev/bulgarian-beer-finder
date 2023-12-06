@@ -19,6 +19,7 @@ export default function ShoppingCart() {
         setIsEmpty(false);
       }
       setBeer(data);
+      console.log(data);
     });
   }, []);
 
@@ -41,10 +42,10 @@ export default function ShoppingCart() {
       {/* <!-- End Header --> */}
 
       {/* <!-- Product List --> */}
-      <section className="container">
+      <section className="cart__container">
         <div>
           {hasItems && (
-            <ul className="products">
+            <ul className="cart__products">
               {getBeers.map((beer) => (
                 <li key={beer._id} className="row">
                   <div className="col left">
@@ -53,11 +54,11 @@ export default function ShoppingCart() {
                         <img src={beer.imgUrl} />
                       </a>
                     </div>
-                    <div className="detail">
-                      <div className="name">
+                    <div className="cart__detail">
+                      <div className=".cart__name">
                         <a href={beer.imgUrl}>{beer.name}</a>
                       </div>
-                      <div className="price">{beer.price} лв.</div>
+                      <div className="cart__price">{beer.price} лв.</div>
                     </div>
                   </div>
                   <div className="col right">
@@ -81,7 +82,7 @@ export default function ShoppingCart() {
         )}
       </section>
 
-      <section className="container">
+      <section className="cart__container">
         <div className="summary">
           <ul>
             <li className="total">

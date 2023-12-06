@@ -27,11 +27,11 @@ export default function Header() {
           Пенливи изненади за вашите вкусове и портфейл!
         </h3>
       </div>
-      <input
+      {/* <input
         type="text"
         className="head__search"
         placeholder="Потърси любимата си бира.."
-      ></input>
+      ></input> */}
       <div className="head__right">
         <Link to="/all-beers" className="head__right__nav">
           Магазини
@@ -64,7 +64,7 @@ export default function Header() {
                 </Link>
               </>
             )}
-            <Link to="/shopping-cart" className="head__right__nav">
+            <Link to="/shopping-cart">
               <FontAwesomeIcon
                 icon={faShoppingCart}
                 className="shopping__cart"

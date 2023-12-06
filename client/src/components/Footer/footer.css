@@ -2,7 +2,9 @@
   background-color: green;
   flex-grow: 1;
   width: 100%;
-  position: fixed;
+  position: sticky;
   left: 0;
   bottom: 0;
+  height: 50px;
+  margin-top: -50px;
 }

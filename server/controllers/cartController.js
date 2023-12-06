@@ -14,7 +14,7 @@ cartController.get("/", async (req, res) => {
   const userId = userPayload._id;
 
   const cart = await getAllCartItems(userId);
-  console.log(cart);
+  //   console.log(cart);
   res.json(cart);
   res.end();
 });

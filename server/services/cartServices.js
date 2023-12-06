@@ -5,6 +5,12 @@ async function addToCart(beerId, userId) {
   const cart = await Cart.findOne({ user: userId });
   const beer = await getBeerById(beerId);
 
+  const beerInCart = await Cart.findOne({ beers: beerId });
+  if (beerInCart) {
+    console.log("beer is in cart already");
+    throw new Error("Beer is already in cart");
+  }
+
   //   console.log("cartSize");
   cart.beers.push(beer);
   cart.totalPrice += beer.price;
@@ -14,7 +20,7 @@ async function addToCart(beerId, userId) {
 
 async function getAllCartItems(userId) {
   const cart = await Cart.findOne({ user: userId }).populate("beers");
-  //   console.log(cart.beers);
+  console.log(cart.beers);
   return cart.beers;
 }
 
