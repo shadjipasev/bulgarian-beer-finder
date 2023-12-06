@@ -80,6 +80,15 @@ html {
 
 .cart__container {
   width: 50%;
+  height: 60%;
+  margin: 0 auto;
+  overflow: auto;
+  background-color: #fff;
+}
+
+.checkout__container {
+  width: 50%;
+  height: 20%;
   margin: 0 auto;
   overflow: auto;
   background-color: #fff;
@@ -210,13 +219,13 @@ header .count {
 }
 
 /* --- SUMMARY --- */
-/* .promotion,
+.promotion,
 .summary,
 .checkout {
   float: left;
   width: 100%;
   margin-top: 1.5rem;
-} */
+}
 
 /* .promotion > label {
   float: left;
@@ -268,7 +277,7 @@ header .count {
   width: 30%;
 }
 
-.summary ul li.total {
+.summary ul li .total {
   font-weight: bold;
 }
 
@@ -292,22 +301,6 @@ header .count {
 }
 
 /* --- SMALL SCREEN --- */
-@media all and (max-width: 599px) {
-  .thumbnail img {
-    display: none;
-  }
-
-  .quantity > input {
-    width: 40px;
-    height: 40px;
-    left: calc(50% - 20px);
-  }
-
-  .remove svg {
-    width: 40px;
-    height: 40px;
-  }
-}
 
 /* --- MEDIUM & LARGE SCREEN --- */
 
@@ -335,11 +328,11 @@ header .count {
 
 .promotion,
 .summary {
-  width: 50%;
+  width: 60%;
 }
 
 .checkout {
-  width: 100%;
+  width: 90%;
 }
 
 .checkout,

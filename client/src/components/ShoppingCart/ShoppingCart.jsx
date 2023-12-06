@@ -26,6 +26,7 @@ export default function ShoppingCart() {
   let price = 0;
   for (const b of getBeers) {
     price += b.price;
+    price = price.toFixed(2);
   }
 
   return (
@@ -82,7 +83,7 @@ export default function ShoppingCart() {
         )}
       </section>
 
-      <section className="cart__container">
+      <section className="checkout__container">
         <div className="summary">
           <ul>
             <li className="total">

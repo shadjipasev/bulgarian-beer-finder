@@ -2,7 +2,7 @@
   background-color: green;
   flex-grow: 1;
   width: 100%;
-  position: sticky;
+  position: static;
   left: 0;
   bottom: 0;
   height: 50px;
