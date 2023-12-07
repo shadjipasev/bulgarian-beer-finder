@@ -49,7 +49,6 @@ function App() {
             <Route path="/edit/:beerId" element={<EditBeer />}></Route>
           </Route>
         </Routes>
-
         <Footer />
       </div>
     </AuthContext.Provider>
