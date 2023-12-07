@@ -17,6 +17,10 @@ export default function Login() {
     password: "",
   });
 
+  // const onBlur = (e) => {
+
+  // }
+
   return (
     <div className="login-page">
       <div className="form">
@@ -27,7 +31,9 @@ export default function Login() {
             placeholder="username"
             value={values.name}
             onChange={onChange}
+            // onBlur={onBlur}
           />
+          <p className="login__error">Error</p>
           <input
             name="password"
             type="password"
@@ -35,6 +41,8 @@ export default function Login() {
             value={values.password}
             onChange={onChange}
           />
+          <p className="login__error">Error</p>
+
           <button>login</button>
           <p className="message">
             Not registered? <Link to="/register">Create an account</Link>
