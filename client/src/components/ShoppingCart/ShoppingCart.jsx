@@ -11,6 +11,7 @@ export default function ShoppingCart() {
 
   const [itemQuantity, setQuantity] = useState(1);
   const [totalPrice, setPrice] = useState(0);
+  console.log(itemQuantity);
 
   const [hasItems, setHasItems] = useState(false);
   const [isEmpty, setIsEmpty] = useState(true);
@@ -24,7 +25,6 @@ export default function ShoppingCart() {
       }
       console.log("in useEffect");
       updatePrice(data);
-      // updatePrice();
       setBeer(data);
     });
   }, []);
@@ -45,13 +45,14 @@ export default function ShoppingCart() {
   }
 
   const onChangeQuantity = (event, price) => {
-    setQuantity(event.target.value);
+    setQuantity(event.target.values);
+    console.log("onChangeQuantity " + event.target.value);
     const quantity = event.target.value;
     let pricePerItem = 0;
     pricePerItem = Number(quantity) * Number(price);
 
     setPrice((currenPrice) => Number(pricePerItem) + Number(currenPrice));
-    console.log(event);
+    // console.log(event);
     // console.log(e);
     // updatePrice();
   };
@@ -85,7 +86,7 @@ export default function ShoppingCart() {
                     <div className="quantity">
                       <input
                         type="number"
-                        name="quantity"
+                        // name="quantity"
                         values={itemQuantity}
                         onChange={(event) =>
                           onChangeQuantity(event, beer.price)
