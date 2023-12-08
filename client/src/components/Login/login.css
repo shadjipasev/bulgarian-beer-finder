@@ -6,6 +6,9 @@
 
 #server__error {
   margin-bottom: 20px;
+  text-decoration: underline;
+  font-weight: 700;
+  color: red;
 }
 
 #login-page {
