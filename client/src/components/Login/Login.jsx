@@ -3,12 +3,19 @@ import useForm from "../../hooks/useForm";
 import { authLogin } from "../../services/authServices";
 import "./login.css";
 import AuthContext from "../../contexts/authContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 export default function Login() {
   const { setSession } = useContext(AuthContext);
+
+  const [error, setError] = useState({});
+  const [serverError, setServerError] = useState();
+
   const loginSubmitHandler = async (values) => {
     const response = await authLogin(values);
+    if (response.message) {
+      setServerError(response.message);
+    }
     setSession(response);
   };
 
@@ -20,6 +27,9 @@ export default function Login() {
   // const onBlur = (e) => {
 
   // }
+
+  //  function formValidate(e,)
+  console.log(values);
 
   return (
     <div className="login-page">

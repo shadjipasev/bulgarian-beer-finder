@@ -32,7 +32,7 @@ export default function ShoppingCart() {
   const calculateTotalPrice = (data) => {
     let initialPrice = 0;
     data.forEach((item) => {
-      initialPrice = Number(initialPrice) + item.price;
+      initialPrice = Number(initialPrice) + Number(item.price);
       console.log(initialPrice);
     });
     return initialPrice;
@@ -41,17 +41,17 @@ export default function ShoppingCart() {
   function updatePrice(data) {
     const price = calculateTotalPrice(data);
 
-    setPrice(price);
+    setPrice(Number(price));
   }
 
   const onChangeQuantity = (event, price) => {
     setQuantity(event.target.values);
-    console.log("onChangeQuantity " + event.target.value);
-    const quantity = event.target.value;
-    let pricePerItem = 0;
-    pricePerItem = Number(quantity) * Number(price);
+    // console.log("onChangeQuantity " + event.target.value);
+    // const quantity = event.target.value;
+    // let pricePerItem = 0;
+    // pricePerItem = Number(quantity) * Number(price);
 
-    setPrice((currenPrice) => Number(pricePerItem) + Number(currenPrice));
+    // setPrice((currenPrice) => Number(pricePerItem) + Number(currenPrice));
     // console.log(event);
     // console.log(e);
     // updatePrice();

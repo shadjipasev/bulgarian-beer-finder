@@ -7,9 +7,19 @@ const secret = "q-asd231adfas12321kl";
 
 async function register(username, email, password) {
   console.log(email, username, password);
-  const existing = await User.findOne({ email });
-  if (existing) {
-    throw new Error("Email is already taken!!!");
+  const existingEmail = await User.findOne({ email });
+  const existingUserName = await User.findOne({ username });
+
+  if (existingEmail) {
+    throw new Error("Email is already taken!");
+  }
+
+  if (existingUserName) {
+    throw new Error("Username is already taken!");
+  }
+
+  if (password.length < 6) {
+    throw new Error("Password should be at least 6 characters!");
   }
 
   const user = await User.create({
