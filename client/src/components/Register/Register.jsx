@@ -108,7 +108,11 @@ export default function Register() {
             onChange={onChange}
             onBlur={formValidate}
           />
-          {error.userError ? <p id="register__error">{error.userError}</p> : ""}
+          {error.userError ? (
+            <span id="register__error">{error.userError}</span>
+          ) : (
+            ""
+          )}
 
           <input
             type="email"
@@ -119,7 +123,7 @@ export default function Register() {
             onBlur={formValidate}
           />
           {error.emailError ? (
-            <p id="register__error">{error.emailError}</p>
+            <span id="register__error">{error.emailError}</span>
           ) : (
             ""
           )}
@@ -132,7 +136,11 @@ export default function Register() {
             onChange={onChange}
             onBlur={formValidate}
           />
-          {error.passError ? <p id="register__error">{error.passError}</p> : ""}
+          {error.passError ? (
+            <span id="register__error">{error.passError}</span>
+          ) : (
+            ""
+          )}
 
           <input
             type="password"
@@ -143,7 +151,7 @@ export default function Register() {
             onBlur={formValidate}
           />
           {error.rePassError ? (
-            <p id="register__error">{error.rePassError}</p>
+            <span id="register__error">{error.rePassError}</span>
           ) : (
             ""
           )}
