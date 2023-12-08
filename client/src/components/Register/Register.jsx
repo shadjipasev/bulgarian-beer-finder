@@ -95,7 +95,7 @@ export default function Register() {
 
   return (
     <div className="register-page">
-      <div className="form">
+      <div id="form">
         <h2 id="login__header">Register</h2>
         {serverError ? <p id="server__error">{serverError}</p> : ""}
 

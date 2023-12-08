@@ -18,6 +18,10 @@ async function register(username, email, password) {
     throw new Error("Username is already taken!");
   }
 
+  if (username == "" || email == "" || password == "") {
+    throw new Error("All fields are required");
+  }
+
   if (username.length < 4) {
     throw new Error("Username should be at least 4 characters!");
   }
