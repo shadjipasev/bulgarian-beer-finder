@@ -10,7 +10,7 @@ export default function Login() {
 
   const [error, setError] = useState({});
   const [serverError, setServerError] = useState();
-  const [isValid, setValid] = useState(false);
+  // const [isValid, setValid] = useState(false);
 
   const loginSubmitHandler = async (values) => {
     const response = await authLogin(values);
@@ -89,9 +89,7 @@ export default function Login() {
           />
           {error.passError ? <p id="login__error">{error.passError}</p> : ""}
 
-          <button id="login_btn" disabled={isValid}>
-            login
-          </button>
+          <button id="login_btn">login</button>
           <p className="message">
             Not registered? <Link to="/register">Create an account</Link>
           </p>

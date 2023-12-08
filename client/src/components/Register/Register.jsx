@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import useForm from "../../hooks/useForm";
 import "./register.css";
 import AuthContext from "../../contexts/authContext";
@@ -10,11 +10,14 @@ export default function Register() {
 
   const [error, setError] = useState({});
   const [serverError, setServerError] = useState();
-  const [isValid, setValid] = useState(false);
+  // const [isValid, setValid] = useState(false);
 
   const registerSubmitHandler = async (values) => {
     const response = await authRegister(values);
-
+    if (response.message) {
+      setServerError(response.message);
+      console.log(response.message);
+    }
     setSession(response);
   };
   const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
@@ -93,6 +96,9 @@ export default function Register() {
   return (
     <div className="register-page">
       <div className="form">
+        <h2 id="login__header">Register</h2>
+        {serverError ? <p id="server__error">{serverError}</p> : ""}
+
         <form onSubmit={onSubmit}>
           <input
             type="text"
@@ -110,6 +116,7 @@ export default function Register() {
             name="email"
             value={values.email}
             onChange={onChange}
+            onBlur={formValidate}
           />
           {error.emailError ? (
             <p id="register__error">{error.emailError}</p>
@@ -123,6 +130,7 @@ export default function Register() {
             name="password"
             value={values.password}
             onChange={onChange}
+            onBlur={formValidate}
           />
           {error.passError ? <p id="register__error">{error.passError}</p> : ""}
 
@@ -132,6 +140,7 @@ export default function Register() {
             name="rePass"
             value={values.rePass}
             onChange={onChange}
+            onBlur={formValidate}
           />
           {error.rePassError ? (
             <p id="register__error">{error.rePassError}</p>
