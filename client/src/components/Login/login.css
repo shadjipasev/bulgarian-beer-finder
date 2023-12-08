@@ -1,5 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+#login__header {
+  margin-bottom: 30px;
+}
+
+#server__error {
+  margin-bottom: 20px;
+}
+
 #login-page {
   width: 400px;
   min-height: 1000px;
@@ -73,3 +81,9 @@ button[disabled] {
   position: relative;
   left: 5px;
 }
+
+/* button[disabled] {
+  border: 1px solid #999999 !important;
+  background-color: #cccccc !important;
+  color: #666666 !important;
+} */
