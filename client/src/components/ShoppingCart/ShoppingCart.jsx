@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import "./shoppingCart.css";
-import { useParams } from "react-router-dom";
-import { getCartItems } from "../../services/cartServices";
+import { useNavigate, useParams } from "react-router-dom";
+import { emptyCart, getCartItems } from "../../services/cartServices";
 import AuthContext from "../../contexts/authContext";
 
 export default function ShoppingCart() {
@@ -9,12 +9,24 @@ export default function ShoppingCart() {
 
   const { user } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   const [itemQuantity, setQuantity] = useState(1);
   const [totalPrice, setPrice] = useState(0);
   console.log(itemQuantity);
 
   const [hasItems, setHasItems] = useState(false);
   const [isEmpty, setIsEmpty] = useState(true);
+
+  async function onClickHandler(e) {
+    e.preventDefault();
+    await emptyCart(user.accessToken);
+    // if (res.ok) {
+    //   console.log(res);
+    // }
+
+    navigate("/thank-you");
+  }
 
   useEffect(() => {
     getCartItems(user.accessToken).then((data) => {
@@ -137,7 +149,9 @@ export default function ShoppingCart() {
           </div>
 
           <div className="checkout">
-            <button type="button">Check Out</button>
+            <button type="button" onClick={onClickHandler}>
+              Check Out
+            </button>
           </div>
         </section>
       )}

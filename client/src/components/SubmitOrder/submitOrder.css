@@ -1,0 +1,26 @@
+.order_box {
+  font-family: verdana;
+  margin: 100px auto;
+  max-width: 700px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.order_box_header {
+  background-color: #45a158;
+  padding: 60px 20px;
+}
+.order_box section {
+  padding: 60px 20px;
+  background-color: azure;
+}
+
+#order_box_button {
+  margin-top: 2rem;
+  width: 100%;
+  background-color: #45a158;
+}
+
+.order_box_title {
+  font-size: 2rem;
+}

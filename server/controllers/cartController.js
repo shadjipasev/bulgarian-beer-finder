@@ -3,6 +3,7 @@ const {
   createCart,
   addToCart,
   getAllCartItems,
+  emptyCart,
 } = require("../services/cartServices");
 const { decodeToken } = require("../services/userServices");
 
@@ -60,6 +61,21 @@ cartController.post("/add/:id", async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    return res.status(400).json({
+      message: "Something went wrong, please try again.",
+    });
+  }
+});
+
+cartController.get("/submit-order", async (req, res) => {
+  const userPayload = decodeToken(req.token);
+  const userId = userPayload._id;
+  try {
+    await emptyCart(userId);
+    res.status(200).json({
+      message: "Cart is empty!",
+    });
+  } catch (error) {
     return res.status(400).json({
       message: "Something went wrong, please try again.",
     });

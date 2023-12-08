@@ -23,3 +23,15 @@ export const getCartItems = async (token) => {
   const response = await result.json();
   return response;
 };
+
+export const emptyCart = async (token) => {
+  const result = await fetch(`${baseUrl}/submit-order`, {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      "x-authorization": token,
+    },
+  });
+  const response = await result.json();
+  return response;
+};

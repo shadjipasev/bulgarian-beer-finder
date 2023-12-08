@@ -37,8 +37,17 @@ async function createCart(beerId, userId) {
   });
 }
 
+async function emptyCart(userId) {
+  const cart = await Cart.findOne({ user: userId });
+
+  cart.beers = [];
+
+  await cart.save();
+}
+
 module.exports = {
   getAllCartItems,
   createCart,
   addToCart,
+  emptyCart,
 };

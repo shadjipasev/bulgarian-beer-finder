@@ -36,17 +36,25 @@ export default function Header() {
         <Link to="/all-beers" className="head__right__nav">
           Магазини
         </Link>
-        <Link to="/catalogs" className="head__right__nav">
+        <Link to="/" className="head__right__nav">
           Каталози
         </Link>
 
         {!isAuth && (
           <>
             <Link to="/login" className="head__right__nav">
-              Login
+              Влез
             </Link>
             <Link to="/register" className="head__right__nav">
-              Register
+              Регистрация
+            </Link>
+          </>
+        )}
+        {isAdmin && (
+          <>
+            {" "}
+            <Link to="/create" className="head__right__nav">
+              Създай бира
             </Link>
           </>
         )}
@@ -54,16 +62,9 @@ export default function Header() {
         {isAuth && (
           <>
             <Link onClick={logoutHandler} className="head__right__nav">
-              Logout
+              Излез
             </Link>
-            {isAdmin && (
-              <>
-                {" "}
-                <Link to="/create" className="head__right__nav">
-                  Create
-                </Link>
-              </>
-            )}
+
             <Link to="/shopping-cart">
               <FontAwesomeIcon
                 icon={faShoppingCart}
