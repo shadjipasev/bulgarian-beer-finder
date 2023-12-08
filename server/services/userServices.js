@@ -14,13 +14,17 @@ async function register(username, email, password) {
     throw new Error("Email is already taken!");
   }
 
-  if (existingUserName) {
-    throw new Error("Username is already taken!");
-  }
+  if (e)
+    if (existingUserName) {
+      throw new Error("Username is already taken!");
+    }
 
-  if (password.length < 6) {
-    throw new Error("Password should be at least 6 characters!");
-  }
+  // if (password.length < 6) {
+  //   throw new Error("Password should be at least 6 characters!");
+  // }
+  // if (password.length < 6) {
+  //   throw new Error("Password should be at least 6 characters!");
+  // }
 
   const user = await User.create({
     username,

@@ -10,11 +10,13 @@ export default function Login() {
 
   const [error, setError] = useState({});
   const [serverError, setServerError] = useState();
+  const [isNotValid, setValid] = useState(false);
 
   const loginSubmitHandler = async (values) => {
     const response = await authLogin(values);
     if (response.message) {
       setServerError(response.message);
+      console.log(response.message);
     }
     setSession(response);
   };
@@ -24,34 +26,64 @@ export default function Login() {
     password: "",
   });
 
-  // const onBlur = (e) => {
+  function formValidate(e) {
+    console.log(e);
+    // console.log(values.password);
 
-  // }
-
-  //  function formValidate(e,)
-  console.log(values);
+    if (e.target.name == "username") {
+      if (values.username.length < 4) {
+        setError({
+          ...error,
+          userError: "Username must be at least 4 characters long",
+        });
+      } else if (values.usename !== "") {
+        setError({
+          ...error,
+          userError: "",
+        });
+      }
+    } else {
+      if (e.target.name == "password") {
+        if (values.password.length < 6) {
+          setError({
+            ...error,
+            passError: "Password must be at least 6 characters long",
+          });
+        } else if (values.password !== "") {
+          setError({
+            ...error,
+            passError: "",
+          });
+        }
+      }
+    }
+  }
+  // console.log(values);
+  // console.log(values.password);
 
   return (
-    <div className="login-page">
-      <div className="form">
+    <div id="login-page">
+      <div id="form">
         <form className="login-form" onSubmit={onSubmit}>
           <input
             type="text"
             name="username"
             placeholder="username"
-            value={values.name}
+            value={values.username}
             onChange={onChange}
-            // onBlur={onBlur}
+            onBlur={formValidate}
           />
-          <p className="login__error">Error</p>
+          {error.userError ? <p id="login__error">{error.userError}</p> : ""}
+
           <input
             name="password"
             type="password"
             placeholder="password"
             value={values.password}
             onChange={onChange}
+            onBlur={formValidate}
           />
-          <p className="login__error">Error</p>
+          {error.passError ? <p id="login__error">{error.passError}</p> : ""}
 
           <button>login</button>
           <p className="message">
