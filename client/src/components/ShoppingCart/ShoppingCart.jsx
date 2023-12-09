@@ -44,29 +44,28 @@ export default function ShoppingCart() {
   const calculateTotalPrice = (data) => {
     let initialPrice = 0;
     data.forEach((item) => {
-      initialPrice = Number(initialPrice) + Number(item.price);
-      console.log(initialPrice);
+      initialPrice += item.price * item.quantity; // Consider item quantity for price calculation
     });
     return initialPrice;
   };
 
   function updatePrice(data) {
     const price = calculateTotalPrice(data);
-
-    setPrice(Number(price));
+    setPrice(price);
   }
 
-  const onChangeQuantity = (event, price) => {
-    setQuantity(event.target.values);
-    // console.log("onChangeQuantity " + event.target.value);
-    // const quantity = event.target.value;
-    // let pricePerItem = 0;
-    // pricePerItem = Number(quantity) * Number(price);
+  const onChangeQuantity = (event, beerId) => {
+    const { value } = event.target;
 
-    // setPrice((currenPrice) => Number(pricePerItem) + Number(currenPrice));
-    // console.log(event);
-    // console.log(e);
-    // updatePrice();
+    // Update the quantity for the respective beer item
+    const updatedBeers = getBeers.map((beer) =>
+      beer._id === beerId ? { ...beer, quantity: Number(value) } : beer
+    );
+
+    setBeer(updatedBeers); // Update the beers list with new quantity
+
+    // Update the total price based on the updated quantities
+    updatePrice(updatedBeers);
   };
 
   const removeHandler = (e) => {
@@ -99,10 +98,9 @@ export default function ShoppingCart() {
                       <input
                         type="number"
                         // name="quantity"
+                        defaultValue={1}
                         values={itemQuantity}
-                        onChange={(event) =>
-                          onChangeQuantity(event, beer.price)
-                        }
+                        onChange={(event) => onChangeQuantity(event, beer._id)}
                         className="quantity"
                         step="1"
                       />
