@@ -9,8 +9,6 @@ async function getAllBeers() {
 }
 
 async function getBeerById(id) {
-  // return await Beer.findById(id);
-
   const beer = await Beer.findById(id);
   return beer;
 }

@@ -35,3 +35,15 @@ export const emptyCart = async (token) => {
   const response = await result.json();
   return response;
 };
+
+export const removeItem = async (token, beerId) => {
+  const result = await fetch(`${baseUrl}/submit-order`, {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      "x-authorization": token,
+    },
+  });
+  const response = await result.json();
+  return response;
+};

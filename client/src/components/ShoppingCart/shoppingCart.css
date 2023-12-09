@@ -71,13 +71,13 @@ html {
   transition: all 0.25s linear;
 }
 
-.cart__container input[type="number"]::-webkit-inner-spin-button,
+/* .cart__container input[type="number"]::-webkit-inner-spin-button,
 .cart__container input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   margin: 0;
-}
+} */
 
 .cart__container input {
   outline: none;
@@ -207,10 +207,10 @@ header .count {
   font: 600 1.5rem Helvetica, Arial, sans-serif;
 }
 
-.cart__container .quantity > input:hover,
+/* .cart__container .quantity > input:hover,
 .cart__container .quantity > input:focus {
   border-color: #f58551;
-}
+} */
 
 .close {
   fill: #7d7d7d;

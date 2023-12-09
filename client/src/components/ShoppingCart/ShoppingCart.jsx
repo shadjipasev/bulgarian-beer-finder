@@ -13,7 +13,7 @@ export default function ShoppingCart() {
 
   const [itemQuantity, setQuantity] = useState(1);
   const [totalPrice, setPrice] = useState(0);
-  console.log(itemQuantity);
+  // console.log(itemQuantity);
 
   const [hasItems, setHasItems] = useState(false);
   const [isEmpty, setIsEmpty] = useState(true);
@@ -44,14 +44,14 @@ export default function ShoppingCart() {
   const calculateTotalPrice = (data) => {
     let initialPrice = 0;
     data.forEach((item) => {
-      initialPrice += item.price * item.quantity; // Consider item quantity for price calculation
+      initialPrice += Number(item.price) * Number(item.quantity); // Consider item quantity for price calculation
     });
     return initialPrice;
   };
 
   function updatePrice(data) {
     const price = calculateTotalPrice(data);
-    setPrice(price);
+    setPrice(price.toFixed(2));
   }
 
   const onChangeQuantity = (event, beerId) => {
@@ -68,8 +68,9 @@ export default function ShoppingCart() {
     updatePrice(updatedBeers);
   };
 
-  const removeHandler = (e) => {
+  const removeHandler = async (e) => {
     console.log(e._id);
+    // await removeItem(user.accessToken, e._id);
   };
 
   return (
