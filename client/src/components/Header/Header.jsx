@@ -34,7 +34,7 @@ export default function Header() {
       ></input> */}
       <div className="head__right">
         <Link to="/all-beers" className="head__right__nav">
-          Магазини
+          Всички бири
         </Link>
         <Link to="/" className="head__right__nav">
           Каталози
