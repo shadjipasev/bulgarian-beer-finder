@@ -61,7 +61,7 @@ export default function ShoppingCart() {
     const { value } = event.target;
 
     let newQuantity = Number(value);
-    console.log(newQuantity);
+
     if (newQuantity < 1) {
       newQuantity = 1;
     }
