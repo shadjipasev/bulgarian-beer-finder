@@ -45,9 +45,21 @@ async function emptyCart(userId) {
   await cart.save();
 }
 
+async function removeBeer(userId, beerId) {
+  const cart = await Cart.findOne({ user: userId });
+
+  //   cart.beers;
+
+  const updatedBeers = cart.beers.filter((beer) => beer._id !== beerId);
+
+  cart.beers = updatedBeers;
+  await cart.save();
+}
+
 module.exports = {
   getAllCartItems,
   createCart,
   addToCart,
   emptyCart,
+  removeBeer,
 };

@@ -1,7 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import "./shoppingCart.css";
 import { useNavigate, useParams } from "react-router-dom";
-import { emptyCart, getCartItems } from "../../services/cartServices";
+import {
+  emptyCart,
+  getCartItems,
+  removeItem,
+} from "../../services/cartServices";
 import AuthContext from "../../contexts/authContext";
 
 export default function ShoppingCart() {
@@ -69,8 +73,16 @@ export default function ShoppingCart() {
   };
 
   const removeHandler = async (e) => {
-    console.log(e._id);
-    // await removeItem(user.accessToken, e._id);
+    await removeItem(user.accessToken, e._id);
+
+    const updatedBeers = getBeers.filter((beer) => beer._id !== e._id);
+
+    if (updatedBeers.length === 0) {
+      setIsEmpty(true);
+    }
+
+    setBeer(updatedBeers);
+    updatePrice(updatedBeers);
   };
 
   return (

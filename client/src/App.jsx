@@ -17,6 +17,7 @@ import { GuestGuard } from "./guards/GuestGuard";
 import { AdminGuard } from "./guards/AdminGuard";
 import BeerType from "./components/BeerType/BeerType";
 import SubmitOrder from "./components/SubmitOrder/SubmitOrder";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 function App() {
   const [user, setAuth] = useLocalSorage("auth", {});
@@ -53,6 +54,7 @@ function App() {
             <Route path="/create" element={<CreateBeer />}></Route>
             <Route path="/edit/:beerId" element={<EditBeer />}></Route>
           </Route>
+          <Route path="*" element={<PageNotFound />}></Route>
         </Routes>
         <Footer />
       </div>

@@ -4,6 +4,7 @@ const {
   addToCart,
   getAllCartItems,
   emptyCart,
+  removeBeer,
 } = require("../services/cartServices");
 const { decodeToken } = require("../services/userServices");
 
@@ -74,6 +75,23 @@ cartController.get("/submit-order", async (req, res) => {
     await emptyCart(userId);
     res.status(200).json({
       message: "Cart is empty!",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      message: "Something went wrong, please try again.",
+    });
+  }
+});
+
+cartController.get("/removeItem", async (req, res) => {
+  const userPayload = decodeToken(req.token);
+  const userId = userPayload._id;
+  const beerId = req.beerId;
+
+  try {
+    await removeBeer(userId, beerId);
+    res.status(200).json({
+      message: "Item removed",
     });
   } catch (error) {
     return res.status(400).json({
