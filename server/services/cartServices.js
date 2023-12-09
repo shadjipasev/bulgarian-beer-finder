@@ -20,7 +20,6 @@ async function addToCart(beerId, userId) {
 
 async function getAllCartItems(userId) {
   const cart = await Cart.findOne({ user: userId }).populate("beers");
-  console.log(cart.beers);
   return cart.beers;
 }
 
@@ -47,8 +46,6 @@ async function emptyCart(userId) {
 
 async function removeBeer(userId, beerId) {
   const cart = await Cart.findOne({ user: userId });
-
-  //   cart.beers;
 
   const updatedBeers = cart.beers.filter((beer) => beer._id !== beerId);
 

@@ -27,7 +27,8 @@ async function editBeer(id, data) {
   beer.imgUrl = data.imgUrl;
   beer.description = data.description;
 
-  await beer.save();
+  const editedBeer = await beer.save();
+  return editedBeer;
 }
 
 async function createBeer(data) {

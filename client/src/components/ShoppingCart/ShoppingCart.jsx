@@ -35,13 +35,12 @@ export default function ShoppingCart() {
   useEffect(() => {
     getCartItems(user.accessToken).then((data) => {
       if (data.length > 0) {
-        // console.log(data);
         setHasItems(true);
         setIsEmpty(false);
+
+        updatePrice(data);
+        setBeer(data);
       }
-      console.log("in useEffect");
-      updatePrice(data);
-      setBeer(data);
     });
   }, []);
 
@@ -61,14 +60,18 @@ export default function ShoppingCart() {
   const onChangeQuantity = (event, beerId) => {
     const { value } = event.target;
 
-    // Update the quantity for the respective beer item
+    let newQuantity = Number(value);
+    console.log(newQuantity);
+    if (newQuantity < 1) {
+      newQuantity = 1;
+    }
+
     const updatedBeers = getBeers.map((beer) =>
-      beer._id === beerId ? { ...beer, quantity: Number(value) } : beer
+      beer._id === beerId ? { ...beer, quantity: newQuantity } : beer
     );
 
-    setBeer(updatedBeers); // Update the beers list with new quantity
+    setBeer(updatedBeers);
 
-    // Update the total price based on the updated quantities
     updatePrice(updatedBeers);
   };
 

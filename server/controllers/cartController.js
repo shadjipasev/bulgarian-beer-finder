@@ -14,18 +14,21 @@ cartController.get("/", async (req, res) => {
   const userPayload = decodeToken(req.token);
   //   console.log("userPayload == " + userPayload);
   const userId = userPayload._id;
-
-  const cart = await getAllCartItems(userId);
-  //   console.log(cart);
-  res.json(cart);
-  res.end();
+  try {
+    const cart = await getAllCartItems(userId);
+    res.json(cart);
+    res.end();
+  } catch (error) {
+    res.json({
+      message: "Cart is empty for now",
+    });
+  }
 });
 
 cartController.post("/add/:id", async (req, res) => {
   console.log("work: 1 | beerController/cart/add:id");
   const beerId = req.params.id;
   const userPayload = decodeToken(req.token);
-  //   console.log("userPayload == " + userPayload);
 
   const userId = userPayload._id;
 
